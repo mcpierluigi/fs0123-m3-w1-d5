@@ -1,19 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopBar from "./components/TopBar";
-import HarryPotter from "./components/HarryPotter";
-import StarWars from "./components/LordOfTheRings";
-import HungerGames from "./components/HungerGames";
+import Home from "./components/Home";
+import TvShows from "./components/TvShows";
 
 function App() {
   return (
     <>
-      <TopBar />
-      <section className="bg-dark movies">
-        <HarryPotter />
-        <StarWars />
-        <HungerGames />
-      </section>
+      <BrowserRouter>
+        <TopBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tv-shows" element={<TvShows />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
